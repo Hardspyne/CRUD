@@ -2,21 +2,28 @@ package com.model;
 
 import java.util.Date;
 
-public class UserModel {
+public class User {
 
     private int userId;
     private String firstName;
-    private String secondName;
+    private String lastName;
     private Date birthdayDate;
     private String email;
 
-    public UserModel(int userId, String firstName, String secondName, Date birthdayDate, String email) {
+    public User(int userId, String firstName, String lastName, Date birthdayDate, String email) {
         this.userId = userId;
         this.firstName = firstName;
-        this.secondName = secondName;
+        this.lastName = lastName;
         this.birthdayDate = birthdayDate;
         this.email = email;
     }
+    public User(String firstName, String lastName, Date birthdayDate, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthdayDate = birthdayDate;
+        this.email = email;
+    }
+
 
     public int getUserId() {
         return userId;
@@ -34,12 +41,12 @@ public class UserModel {
         this.firstName = firstName;
     }
 
-    public String getSecondName() {
-        return secondName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
+    public void setlastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Date getBirthdayDate() {
@@ -60,10 +67,10 @@ public class UserModel {
 
     @Override
     public String toString() {
-        return "UserModel{" +
+        return "User{" +
                 "userId=" + userId +
                 ", firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", birthdayDate=" + birthdayDate +
                 ", email='" + email + '\'' +
                 '}';
