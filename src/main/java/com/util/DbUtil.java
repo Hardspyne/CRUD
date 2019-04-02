@@ -17,8 +17,8 @@ public class DbUtil {
 
         Properties properties = new Properties();
         try {
-            properties.load(new FileInputStream("src\\main\\resources\\db.properties"));
-//            properties.load(DbUtil.class.getClassLoader().getResourceAsStream("/db.properties"));
+//            properties.load(new FileInputStream("src\\main\\resources\\db.properties"));
+            properties.load(DbUtil.class.getClassLoader().getResourceAsStream("/db.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -28,9 +28,11 @@ public class DbUtil {
         String password = properties.getProperty("password");
 
         try {
+            Class.forName("com.mysql.jdbc.Driver");
+
             dbConnection = DriverManager.getConnection(url + "?user=" + user + "&password=" + password +
                     "&useLegacyDatetimeCode=false&serverTimezone=UTC");
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 

@@ -22,7 +22,7 @@ public class UserDaoTest {
 
     @Before
     public void initTest() {
-        userDao = new UserDao(DbUtil.getDbConnection());
+        userDao = new UserDao();
         randomFirstName = UUID.randomUUID().toString();
         randomLastName = UUID.randomUUID().toString();
     }

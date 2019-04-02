@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.model.User;
+import com.util.DbUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -9,8 +10,8 @@ import java.util.List;
 public class UserDao implements Dao {
     private Connection connection;
 
-    public UserDao(Connection connection) {
-        this.connection = connection;
+    public UserDao() {
+        this.connection = DbUtil.getDbConnection();
     }
 
     public int addUser(User user) {
@@ -56,8 +57,6 @@ public class UserDao implements Dao {
             preparedStatement.setInt(5, user.getUserId());
 
             preparedStatement.executeUpdate();
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -67,10 +66,11 @@ public class UserDao implements Dao {
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<User>();
         String selectAllQuery = "select * from users";
+
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(selectAllQuery);
 
+            ResultSet resultSet = statement.executeQuery(selectAllQuery);
             while (resultSet.next()) {
                 users.add(new User(resultSet.getInt("id"), resultSet.getString("firstName"),
                         resultSet.getString("lastName"), resultSet.getDate("birthdayDate"), resultSet.getString("email")));
@@ -89,8 +89,8 @@ public class UserDao implements Dao {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(selectUserByIdQuery);
             preparedStatement.setInt(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
 
+            ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 user = new User(resultSet.getInt("id"), resultSet.getString("firstName"),
                         resultSet.getString("lastName"), resultSet.getDate("birthdayDate"), resultSet.getString("email"));
@@ -104,7 +104,8 @@ public class UserDao implements Dao {
     private void addUserParametersToPreparedStatement(PreparedStatement preparedStatement, User user) throws SQLException {
         preparedStatement.setString(1, user.getFirstName());
         preparedStatement.setString(2, user.getLastName());
-        preparedStatement.setDate(3, new java.sql.Date(user.getBirthdayDate().getTime()));
+        preparedStatement.setDate(3, user.getBirthdayDate() != null ?
+                new java.sql.Date(user.getBirthdayDate().getTime()) : null);
         preparedStatement.setString(4, user.getEmail());
     }
 }
