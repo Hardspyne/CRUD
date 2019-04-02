@@ -16,7 +16,7 @@
 <body>
 
 <form method="POST" action='Controller' name="frmAddUser">
-    User ID : <input type="text" readonly="readonly" name="userid"
+    User ID : <input type="text" readonly="readonly" name="userId"
                      value="<c:out value="${user.userId}" />"/> <br/>
     First Name : <input
         type="text" name="firstName"

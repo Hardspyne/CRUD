@@ -31,7 +31,7 @@
             <td><c:out value="${user.userId}" /></td>
             <td><c:out value="${user.firstName}" /></td>
             <td><c:out value="${user.lastName}" /></td>
-            <td><fmt:formatDate pattern="yyyy-MMM-dd" value="${user.birthdayDate}" /></td>
+            <td><fmt:formatDate pattern="dd.MM.yyyy" value="${user.birthdayDate}" /></td>
             <td><c:out value="${user.email}" /></td>
             <td><a href="Controller?action=edit&userId=<c:out value="${user.userId}"/>">Update</a></td>
             <td><a href="Controller?action=delete&userId=<c:out value="${user.userId}"/>">Delete</a></td>
