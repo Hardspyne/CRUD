@@ -24,23 +24,23 @@
                    value="<c:out value="${user.userId}" />"/>
         </div>
         <div class="field">
-            <label for="n">firstName</label>
-            <input type="text" id="n" name="firstName"
+            <label for="n">firstName *</label>
+            <input type="text" required id="n" name="firstName"
                    value="<c:out value="${user.firstName}" />"/>
         </div>
         <div class="field">
-            <label for="ln">LastName</label>
-            <input type="text" id="ln" name="lastName"
+            <label for="ln">LastName *</label>
+            <input type="text" required id="ln" name="lastName"
                    value="<c:out value="${user.lastName}" />"/>
         </div>
         <div class="field">
             <label for="bd">birthdayDate</label>
-            <input type="text" id="bd" name="birthdayDate"
-                   value="<fmt:formatDate pattern="dd.MM.yyyy" type="date" value="${user.birthdayDate}" />"/>
+            <input type="date" id="bd" name="birthdayDate"
+                   value="<fmt:formatDate pattern="yyyy-MM-dd" type="date" value="${user.birthdayDate}" />"/>
         </div>
         <div class="field">
             <label for="m">Email</label>
-            <input type="text" id="m" name="email"
+            <input type="email" id="m" name="email"
                    value="<c:out value="${user.email}" />"/>
         </div>
         <div class="field">
