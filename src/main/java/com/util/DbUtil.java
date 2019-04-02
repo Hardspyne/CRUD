@@ -31,7 +31,7 @@ public class DbUtil {
             Class.forName("com.mysql.jdbc.Driver");
 
             dbConnection = DriverManager.getConnection(url + "?user=" + user + "&password=" + password +
-                    "&useLegacyDatetimeCode=false&serverTimezone=UTC");
+                    "&useLegacyDatetimeCode=false&serverTimezone=Europe/Moscow");
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
