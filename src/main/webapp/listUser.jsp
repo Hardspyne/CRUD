@@ -10,11 +10,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Show All Users</title>
 </head>
 <body>
-<table border=1>
+<table border=1 style="border-collapse: collapse;" cellpadding="5px" >
     <thead>
     <tr>
         <th>User Id</th>

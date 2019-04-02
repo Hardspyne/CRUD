@@ -10,26 +10,43 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Add new user</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <form method="POST" action='Controller' name="frmAddUser">
-    User ID : <input type="text" readonly="readonly" name="userId"
-                     value="<c:out value="${user.userId}" />"/> <br/>
-    First Name : <input
-        type="text" name="firstName"
-        value="<c:out value="${user.firstName}" />"/> <br/>
-    Last Name : <input
-        type="text" name="lastName"
-        value="<c:out value="${user.lastName}" />"/> <br/>
-    DOB : <input
-        type="text" name="birthdayDate"
-        value="<fmt:formatDate pattern="dd.MM.yyyy" type="date" value="${user.birthdayDate}" />"/> <br/>
-    Email : <input type="text" name="email"
-                   value="<c:out value="${user.email}" />"/> <br/> <input
-        type="submit" value="Submit"/>
+    <div class="main">
+        <div class="field">
+            <label for="UserId">UserId</label>
+            <input type="text" id="UserId" readonly="readonly" name="userId"
+                   value="<c:out value="${user.userId}" />"/>
+        </div>
+        <div class="field">
+            <label for="n">firstName</label>
+            <input type="text" id="n" name="firstName"
+                   value="<c:out value="${user.firstName}" />"/>
+        </div>
+        <div class="field">
+            <label for="ln">LastName</label>
+            <input type="text" id="ln" name="lastName"
+                   value="<c:out value="${user.lastName}" />"/>
+        </div>
+        <div class="field">
+            <label for="bd">birthdayDate</label>
+            <input type="text" id="bd" name="birthdayDate"
+                   value="<fmt:formatDate pattern="dd.MM.yyyy" type="date" value="${user.birthdayDate}" />"/>
+        </div>
+        <div class="field">
+            <label for="m">Email</label>
+            <input type="text" id="m" name="email"
+                   value="<c:out value="${user.email}" />"/>
+        </div>
+        <div class="field">
+            <input type="submit" value="Submit"/>
+        </div>
+    </div>
 </form>
 </body>
 </html>
