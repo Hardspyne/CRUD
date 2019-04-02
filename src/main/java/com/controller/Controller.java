@@ -73,7 +73,7 @@ public class Controller extends HttpServlet {
         String email = req.getParameter("email");
         Date birthdayDate = null;
         try {
-            birthdayDate = new SimpleDateFormat("dd.MM.yyyy").parse(req.getParameter("birthdayDate"));
+            birthdayDate = new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("birthdayDate"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
